@@ -1,6 +1,7 @@
 import express from "express";
 import messages from "./routes/messages.js";
 import users from "./routes/users.js";
+import auth from "./routes/auth.js";
 
 
 import { getMongoConn, initMongoDb } from "./utils/mongodbConn.js";
@@ -31,6 +32,7 @@ app.get("/", async (req, res) => {
 
 app.use("/api/users", users);
 app.use("/api/messages", messages);
+app.use("/api/auth", auth);
 
 app.listen(PORT, async () => {
   await initMongoDb();

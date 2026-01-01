@@ -15,11 +15,10 @@ export async function initMySqlDb() {
   const CREATE_TABLE_QUERY = `
   CREATE TABLE IF NOT EXISTS messages (
   id INT PRIMARY KEY AUTO_INCREMENT,
-  productId VARCHAR(24) NOT NULL,
-  quantity INT NOT NULL,
-  customerName VARCHAR(255) NOT NULL,
-  totalPrice DECIMAL(10,2) NOT NULL,
-  orderDate DATETIME DEFAULT CURRENT_TIMESTAMP
+  username VARCHAR(24) NOT NULL,
+  cipher_type VARCHAR(30) NOT NULL,
+  encrypted_text VARCHAR(255) NOT NULL,
+  inserted_at DATETIME DEFAULT CURRENT_TIMESTAMP
 )`;
 
   await initConnection.query(CREATE_DB_QUERY);
