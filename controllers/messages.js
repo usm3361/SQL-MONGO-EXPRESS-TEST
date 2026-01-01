@@ -24,10 +24,11 @@ export const createReverse = async (req, res) => {
     );
     const newMessageId = result.insertId;
 
-    await usersCollection.updateOne(
-      { user: username },
-      { $inc: { encryptedmessagesCount: 1 } }
+    const user = await usersCollection.updateOne(
+      { userName: username },
+        { $inc: { encryptedMessagesCount: 1 } }
     );
+    console.log(user)
     return res.status(201).json({
       message: "message encrypt successfully",
       id: newMessageId,
