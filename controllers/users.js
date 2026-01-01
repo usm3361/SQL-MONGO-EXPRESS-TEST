@@ -54,7 +54,15 @@ export const getUser = async (req, res) => {
         .status(404)
         .json({ success: false, message: "user not found" });
     }
-    return res.status(200).json({ success: true, userFound: user });
+    const resUsername = user.userName;
+    const resencryptedMessagesCount = user.encryptedMessagesCount;
+
+    return res
+      .status(200)
+      .json({
+        success: true,
+        userFound: { resUsername, resencryptedMessagesCount },
+      });
   } catch (err) {
     console.error("Error fetching user:", err);
     res.status(500).json({ success: false, message: err.message });
