@@ -8,12 +8,12 @@ export async function initMySqlDb() {
     port: 3306,
   });
 
-  const CREATE_DB_QUERY = `CREATE DATABASE IF NOT EXISTS ecommerce;`;
+  const CREATE_DB_QUERY = `CREATE DATABASE IF NOT EXISTS Cipher;`;
 
-  const USE_DB_QUERY = "USE ecommerce;";
+  const USE_DB_QUERY = "USE Cipher;";
 
   const CREATE_TABLE_QUERY = `
-  CREATE TABLE IF NOT EXISTS orders (
+  CREATE TABLE IF NOT EXISTS messages (
   id INT PRIMARY KEY AUTO_INCREMENT,
   productId VARCHAR(24) NOT NULL,
   quantity INT NOT NULL,
@@ -39,7 +39,7 @@ export async function getMySqlConn() {
       user: "root",
       password: "root",
       port: 3306,
-      database: "ecommerce",
+      database: "Cipher",
     });
     return conn;
   }
