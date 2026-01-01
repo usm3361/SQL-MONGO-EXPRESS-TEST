@@ -3,7 +3,6 @@ import messages from "./routes/messages.js";
 import users from "./routes/users.js";
 import auth from "./routes/auth.js";
 
-
 import { getMongoConn, initMongoDb } from "./utils/mongodbConn.js";
 import { getMySqlConn, initMySqlDb } from "./utils/mysqlConn.js";
 

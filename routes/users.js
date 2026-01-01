@@ -1,10 +1,8 @@
 import express from "express";
-// import { createOrder, getAllOrders, getOrder } from "../controllers/users.js";
 
 const router = express.Router();
 
-router.route("/").get()
-router.route("/:id")
+router.route("/me")
   
 
 export default router;

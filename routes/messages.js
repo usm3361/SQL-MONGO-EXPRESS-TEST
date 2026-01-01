@@ -1,9 +1,9 @@
 import express from "express";
-// import { createOrder, getAllOrders, getOrder } from "../controllers/messages.js";
+import { createReverse } from "../controllers/messages.js";
 
 const router = express.Router();
 
-router.route("/");
+router.route("/encrypt").post(createReverse);
 router.route("/:id");
 
 export default router;

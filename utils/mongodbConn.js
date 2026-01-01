@@ -1,7 +1,6 @@
 import { MongoClient } from "mongodb";
 
-const MONGO_URL =
-  process.env.MONGO_URL
+const MONGO_URL = "mongodb://admin:password123@localhost:27018/Cipher?authSource=admin";
 const DB_NAME = "Cipher";
 const COLLECTION_NAME = "users";
 
@@ -14,10 +13,9 @@ export async function initMongoDb() {
     await mongocClient.connect();
     mongoConn = mongocClient.db(DB_NAME);
 
-    const productsCollection = mongoConn.collection(COLLECTION_NAME);
+    const usersCollection = mongoConn.collection(COLLECTION_NAME);
 
-    // Create the unique index on title
-    await productsCollection.createIndex({ userName: 1 }, { unique: true });
+    await usersCollection.createIndex({ userName: 1 }, { unique: true });
   } catch (error) {
     console.error("Error initializing database:", error);
     throw error;
