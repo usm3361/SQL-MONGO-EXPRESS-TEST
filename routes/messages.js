@@ -1,9 +1,9 @@
 import express from "express";
-import { createReverse } from "../controllers/messages.js";
+import { createReverse, reverseDecrypt } from "../controllers/messages.js";
 
 const router = express.Router();
 
 router.route("/encrypt").post(createReverse);
-router.route("/:id");
+router.route("/decrypt").post(reverseDecrypt)
 
 export default router;

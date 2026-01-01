@@ -1,7 +1,11 @@
+import { getMongoConn } from "./mongodbConn.js";
+
 export const validateUser = async (username, password) => {
-  const userCollection = req.mongoConn.collection("users");
-  const foundUser = userCollection.find(
-    (foundUser) => foundUser.username.toLowerCase() === username.toLowerCase() && foundUser.password === password
+
+  const userConn = await getMongoConn()
+   const usersCollection = userConn.collection("users");
+  const validUser = usersCollection.findOne(
+    {username, password}
   );
-  return foundUser || null;
+  return validUser || null;
 }
